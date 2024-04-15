@@ -7,9 +7,9 @@ import { searchHistoryAtom } from '../store'; // Adjust path as needed
 import { addToHistory } from '../lib/userData';
 
 
-export default function AdvancedSearch(){
+export default function AdvancedSearch() {
     const { register, handleSubmit } = useForm();
-    //Step 6
+    // Step 6
     const [searchHistory, setSearchHistory] = useAtom(searchHistoryAtom);
     const router = useRouter();
 
@@ -19,10 +19,11 @@ export default function AdvancedSearch(){
           .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
           .join('&');
 
-          //Wait for history update before navigating and state update
+          // Wait for history update before navigating and state update
           const updatedHistory = await addToHistory(queryString);
           router.push(`/artwork?${queryString}`);
     };
+
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
@@ -49,7 +50,7 @@ export default function AdvancedSearch(){
                 <Form.Label>Geo Location</Form.Label>
                 <Form.Control type="text" placeholder="" {...register('geoLocation')} />
                 <Form.Text className="text-muted">
-                  Case Sensitive String (ie "Europe", "France", "Paris", "China", "New York", etc.), with multiple values separated by the | operator
+                  Case Sensitive String (e.g., &quot;Europe&quot;, &quot;France&quot;, &quot;Paris&quot;, &quot;China&quot;, &quot;New York&quot;), with multiple values separated by the | operator
                 </Form.Text>
               </Form.Group>
             </Col>
@@ -58,7 +59,7 @@ export default function AdvancedSearch(){
                 <Form.Label>Medium</Form.Label>
                 <Form.Control type="text" placeholder="" {...register('medium')} />
                 <Form.Text className="text-muted">
-                  Case Sensitive String (ie: "Ceramics", "Furniture", "Paintings", "Sculpture", "Textiles", etc.), with multiple values separated by the | operator
+                  Case Sensitive String (e.g., &quot;Ceramics&quot;, &quot;Furniture&quot;, &quot;Paintings&quot;, &quot;Sculpture&quot;, &quot;Textiles&quot;), with multiple values separated by the | operator
                 </Form.Text>
               </Form.Group>
             </Col>
