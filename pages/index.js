@@ -8,7 +8,7 @@
 *
 * Name: Sukhman Hara Student ID: 109790220 Date: April 14, 2024
 *
-* Vercel App (Deployed) Link: _____________________________________________________
+* Vercel App (Deployed) Link: https://assignment-6-bts-435-my-app.vercel.app/
 *
 ********************************************************************************/ 
 import React from 'react';
